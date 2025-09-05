@@ -1,0 +1,160 @@
+% ----------------------------------------------------------------
+% AMS-LaTeX Paper ************************************************
+% **** -----------------------------------------------------------
+%\documentclass{amsart}
+\documentclass[reqno]{article}
+\usepackage{amsmath,amscd}
+\usepackage{centernot}
+%\usepackage{graphicx}
+\usepackage{cancel}
+\usepackage{tikz}
+\usetikzlibrary{arrows,snakes,backgrounds,positioning}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{pdflscape,mathtools}
+\usepackage{tikz-er2,xcolor,soul}
+\usepackage{tcolorbox}
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\usepackage{placeins}
+\usepackage[hidelinks]{hyperref}
+
+%\usepackage[margin=1in]{geometry}
+
+\newcommand\signature[2]{% Name; Date
+\noindent\begin{minipage}{5cm} 
+    \noindent\vspace{2.5cm}\par 
+    \noindent\rule{5cm}{1pt}\par 
+    \noindent\textbf{#1} \hfill \textbf{#2}
+\end{minipage}}
+% ----------------------------------------------------------------
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+\hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+% THEOREMS -------------------------------------------------------
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{claim}[thm]{Claim}
+%\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+%\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{warning}[thm]{Warning}
+\newtheorem{example}[thm]{Example}
+\newtheorem{notation}[thm]{Notation}
+\newtheorem{convention}[thm]{Convention}
+\newtheorem{ruleydooley}[thm]{Rule}
+\newtheorem{note}[thm]{Note}
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{algorithm}{Algorithm}[section]
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+% MATH -----------------------------------------------------------
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\Real}{\mathbb R}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\BX}{\mathbf{B}(X)}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\Z}{\mathcal{Z}}
+\newcommand{\ZN}{\mathbf{Z/NZ}}
+\newcommand{\twolayersub}[2]{\genfrac{}{}{0 pt}{1}{#1}{#2}}
+\newcommand\insertdate[1][\today]{\vfill\begin{flushright}#1\end{flushright}}
+% ----------------------------------------------------------------
+\parskip 0.1 in
+\parindent 0 pt
+\evensidemargin \oddsidemargin
+\makeatletter \def\l@subsection{\@tocline{2}{0pt}{2.5pc}{2pc}{}} \makeatother
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{4}
+
+\begin{document}
+
+
+\begin{titlepage}
+   \begin{center}
+       \vspace*{1cm}
+        Specification Document\\
+        \vspace{0.50cm}
+        
+        Poetry in the Parks Application\\
+        \vspace{0.50cm}
+        
+        For [name of the organization / full name]\\
+        
+        \vspace{0.50cm}
+        Authored by the UWS Computer Science 499 Development Team \\
+        
+        \vspace{1.50cm}
+        Jackson Allfrey\\ 
+        \vspace{0.50cm}
+        Andrew Beers\\ 
+        \vspace{0.50cm}
+        Igor Guetten \\
+        \vspace{0.50cm}
+        Mikaela Matias \\
+        \vspace{0.50cm}
+        Ricky Matlock \\
+        \vspace{0.50cm}
+        Junior Smith  \\
+
+        \vspace{1cm}
+        Version: 1.0 \\
+        \vspace{0.5cm}
+        Date: September 4, 2025 
+            
+   \end{center}
+\end{titlepage}
+
+
+%force dotted lines in table of contents
+\makeatletter
+\def\@tocline#1#2#3#4#5#6#7{\relax
+  \ifnum #1>\c@tocdepth % then omit
+  \else
+    \par \addpenalty\@secpenalty \addvspace{#2}%
+    \begingroup \hyphenpenalty\@M
+    \@ifempty{#4}{%
+      \@tempdima\csname r@tocindent\number#1\endcsname\relax
+    }{%
+      \@tempdima#4\relax
+    }%
+    \parindent\z@ \leftskip#3 \advance\leftskip\@tempdima
+    \rightskip\@pnumwidth\parfillskip-\@pnumwidth
+    #5\leavevmode\hskip-\@tempdima #6\relax
+    \leaders\hbox{$\m@th
+      \mkern \@dotsep mu\hbox{.}\mkern \@dotsep mu$}\hfill
+    \hbox to\@pnumwidth{\@tocpagenum{#7}}\par
+    \nobreak
+    \endgroup
+  \fi}
+\makeatother
+
+
+
+\tableofcontents
+%\pagestyle{fancy}
+\setcounter{section}{0}
+%\pagestyle{fancy}
+\include{Introduction}
+\include{UserRequirements/GlobalNavigation}
+\include{UserRequirements/HomePage}
+\include{UserRequirements/Section2.3}
+\include{CalculationsAndAlgorithms}
+\include{NonFunctionalRequirements}
+\include{Authorization}
+\end{document}
+
+
+
+
+
+
+
+
+
